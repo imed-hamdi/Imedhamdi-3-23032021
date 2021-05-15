@@ -1,6 +1,6 @@
 
 
-fetch('  https://localhost:3000/api/teddies')
+fetch('  http://localhost:3000/api/teddies')
     .then(response => response.json())
     .then(function (posts) {
         for (post of posts) {
