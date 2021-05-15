@@ -6,14 +6,21 @@ fetch('  http://localhost:3000/api/teddies')
         for (post of posts) {
 
             document.getElementById("main").innerHTML += `
-       
-          <div class="  card-body " >
+            <ul class="list-product">
+            <a href="#">
+             <li>
+            <div class="  card-body " >
                 <img class=”card-img-top crtaa" src=${post.imageUrl}>
+                <hr>
                 <h4 class="card-title">${post.name}</h4>
                 <p class="card-text">${post.price}$</p>
                 <button type="button" class="btn btn-dark">acheter</button>
-                </div>
+               
+               </div>
+               </li>
+               </a>
+               </ul>
        `
 
-    }
+        }
     });

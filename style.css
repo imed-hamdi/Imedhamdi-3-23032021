@@ -15,10 +15,36 @@ img{
  .card-body{
      border: 1px solid;
      border-radius: 20px;
-     margin: 20px;
+     margin-top: 20px;
      -webkit-box-shadow: 9px -9px 10px 2px rgba(189,176,189,1);
      -moz-box-shadow: 9px -9px 10px 2px rgba(189,176,189,1);
      box-shadow: 9px -9px 10px 2px rgba(189,176,189,1);
+     transform: scale(1);
+     transition: 0.3s;
+     box-sizing: border-box;
 
 
  }
+ .card-body:hover{
+    transform: scale(1.05);
+ }
+#main{
+     display: grid;
+     grid-template-columns: repeat(auto-fill,400px);
+     gap: 2vw;
+ }
+ .list-product{
+     list-style: none;
+     margin: 0;
+     padding: 0;
+ }
+a{
+    color: inherit;
+    text-decoration: none;
+   
+}
+a:hover{
+    text-decoration: none;
+    color: inherit;
+  
+}
