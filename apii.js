@@ -30,7 +30,7 @@ function display() {
 }
 
 
-fetch('  http://localhost:3000/api/teddies')
+fetch(' https://oc-devweb-p5-api.herokuapp.com')
     .then(response => response.json())
     .then(function (posts) {
         for (post of posts) {
