@@ -1,7 +1,12 @@
-
+#name-price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: medium;
+}
 .card-body img{
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
  
 }
@@ -14,8 +19,9 @@
 
      margin: 0;
      border-radius: 10px;
-     background-color: rgb(247, 218, 238);
+  
      font-family: cursive;
+
  }
  .card-body{
      border: 1px solid;
@@ -29,28 +35,37 @@
      background-color: rgb(247, 218, 238);
      
  }
-hr{
-    margin-top: 0;
-    margin-bottom: 0;
+
+.prix{
+    font-weight: bolder;
+}
+body{
+    position: relative;
+    padding-bottom: 72px;
+    min-height: 100vh;
+}
+
+footer{
+ position: absolute;
+    bottom: 0;
+    width: 100%;
 }
  #main{
      display: grid;
      grid-template-columns: repeat(auto-fill,400px);
      gap:1vw;
      width: 90%;
-     margin-bottom: 2vw;
-     margin-top: 2vw;
-     padding: 0 !important;
+     height: auto;
+     padding: 2vw;
      margin-left: auto;
      margin-right: auto;
-
-     
+  
  }
 
 
  
  .card-body:hover{
-    transform: scale(1.02);
+transform: scale(1.02);
  }
 
 
@@ -69,10 +84,7 @@ a:hover{
     justify-content: space-between;
     margin-bottom:auto ;
 }
-.list-inline-item {
-    padding-top: 2vw;
-    padding-bottom: 2vw;
-}
+
 
 
 @media screen and (max-width: 600px){
@@ -94,7 +106,7 @@ a:hover{
 @media screen and (min-width: 1400px){
     #main{
         display: grid;
-        grid-template-columns: repeat(auto-fill,500px);
+        grid-template-columns: repeat(auto-fill,350px);
         gap:2vw;
 }
 }
@@ -104,4 +116,34 @@ a:hover{
         grid-template-columns: repeat(auto-fill,500px);
         gap:2vw;
 }
+}
+.card-product img{
+    height: 100%;
+    width: 40%;
+    border: 1px solid;
+    border-radius: 10px;
+}
+.card-product{
+    margin-top:2vw;
+    margin-bottom: 2vw;
+    height: 100%;
+    transform: scale(1);
+    display: flex;
+    justify-content: space-between;
+    
+}
+.card-product:hover {
+    transform: scale(1);
+}
+#main-produit{
+    display: flex;
+  
+
+}
+.card-text-descreption{
+    padding: 1vw;
+    text-align: center;
+}
+.card-description{
+    padding: 1vw;
 }

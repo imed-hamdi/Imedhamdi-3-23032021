@@ -1,37 +1,33 @@
+function displayListProduct() {
+    var peluche = document.getElementById("main");
+    peluche.innerHTML += `
+    <a href="produit.html"   onclick="displayproduit()">
+    <li id="carte">
+    <div class="  card-body " >
+    <img class=”card-img-top" src=${post.imageUrl}>
+    <hr>
+    <h4 class="card-title">${post.name}</h4>
+    <div class="price-btn">
+    <p class="card-text prix">${post.price / 100} €</p>
+    <button type="button" class="btn btn-dark">Acheter</button>
+    </div>
+    <hr>
+    <p class="card-text">${post.description}</p>
+    </div>
+    </li>
+     </a>
+    `}
+    fetch('http://localhost:3000/api/teddies')
+        .then(response =>response.json())
+        .then(function (posts) {
+            for (post of posts) {
+                displayListProduct();
+            }});
+ function displayproduit() {
+    card = document.getElementById("main-produit");
+    let maindiv = document.createElement("div");
+    let idProd = document.TEXT_NODE(post.name);
+    maindiv.appendChild(idProd);
+    card.appendChild(maindiv);
 
-
-fetch('  http://localhost:3000/api/teddies')
-    .then(response => response.json())
-    .then(function (posts) {
-       
-        
-        for (post of posts) {
-           
-            document.getElementById("main").innerHTML += `
-            
-            <a href="produit.html"   onclick="displayproduit(posts)">
-               <li id="carte">
-                <div class="  card-body " >
-                <img class=”card-img-top" src=${post.imageUrl}>
-                <hr>
-                <h4 class="card-title">${post.name}</h4>
-               
-                <div class="price-btn">
-                <p class="card-text">${post.price/100} €</p>
-                <button type="button" class="btn btn-dark">Acheter</button>
-                </div>
-                <hr>
-                <p class="card-text">${post.description}</p>
-                
-
-               </div>
-               </li>
-               </a>
-               
-       `
-             
-        }
-
-
-
-    });
+}
