@@ -12,20 +12,21 @@ async function func() {
 
 function displayproduit(product) {
 
-const produit = document.getElementById("main-produit");
-let colorsNumb = product.colors;
-let newdiv =[];
- for(i=0;i<colorsNumb.length;i++){
-   newdiv +=`
-   <option value="${i+1}">${colorsNumb[i]}</option>;`
-  }
- produit.innerHTML = `
+    const produit = document.getElementById("main-produit");
+    let colorsNumb = product.colors;
+    let newdiv = [];
+    for (i = 0; i < colorsNumb.length; i++) {
+        newdiv += `<option  value="${colorsNumb[i]}">${colorsNumb[i]}</option>;`
+    }
+   
+    produit.innerHTML = `
  <div class="  card-body card-product" >
  <img class=”card-img-top" src=${product.imageUrl}>
 
 <form>
 <label for="options-couleurs">Choisir la couleur</label>
-<select name="colors" id="options-colors">
+<select name="colors" id="options-colors" onchange="getChoice()">
+<option  value="${i }"></option>;
 ${newdiv}
 </select> 
 </form>
@@ -47,5 +48,11 @@ function getProductbyid(id) {
         .then(function (product) {
             return product
         })
+}
+
+async function getChoice(){
+    var SelectedChoice = await document.getElementById("options-colors").value;
+    console.log(SelectedChoice );
+    localStorage.setItem('Choice', SelectedChoice);
 }
 

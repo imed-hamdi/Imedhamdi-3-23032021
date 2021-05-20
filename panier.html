@@ -9,10 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="stylesheet" href="style.css">
-
-    <script src="produit.js"> </script>
-
-    <title>Orinoco -Produit</title>
+    <script src="apii.js"> </script>
+    <title>Orinoco</title>
 </head>
 
 <body>
@@ -20,7 +18,7 @@
 
     <div class="bg-dark">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row ">
                 <nav class="col navbar navbar-expand-lg bg-dark navbar-dark ">
                     <a class="navbar-brand" href="index.html">
                         <img src="logo.png" id="logo" alt="logo du site" />
@@ -28,7 +26,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div id="navbarContent" class="collapse navbar-collapse">
+                    <div id="navbarContent" class="collapse navbar-collapse ">
                         <ul class="navbar-nav ml-auto ">
                             <li class="nav-item">
                                 <a href="index.html" class="nav-link">Accueil</a>
@@ -46,18 +44,64 @@
     </div>
 
 
+    <div class="container">
 
+        <table class="CarteAchat">
+            <tr>
 
-    <div class="container-fluid">
-        <div class="container container-product">
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th>Prix</th>
+                <th>Couleur</th>
+                <th>Total</th>
+                
+            </tr>
+            <tr id="Commande"></tr>
+        </table>
 
-            <div id="main-produit">
-
-            </div>
-
-        </div>
     </div>
 
+
+    <div class="container">
+        <div class="formulaire-globale">
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Nom</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="Nom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Prenom</label>
+                        <input type="text" class="form-control" id="inputPassword4" placeholder="Nom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="inputAddress2">Addresse</label>
+                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio,..">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">Ville</label>
+                        <input type="text" class="form-control" id="inputCity">
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Code Postal</label>
+                        <input type="text" class="form-control" placeholder="Exemple 75100" id="inputZip">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn col-md-3 btn-primary">Passer ma commande</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <div class="bg-light">
