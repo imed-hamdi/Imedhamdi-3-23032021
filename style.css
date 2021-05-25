@@ -104,6 +104,7 @@ a:hover{
         text-align: center;
 }
 }
+
 @media  screen and (min-width: 601px){
     #main{
         display: grid;
@@ -135,6 +136,9 @@ a:hover{
 }
 .card-product{
  border: 1px solid;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 
     
 }
@@ -177,7 +181,7 @@ form{
     margin-top: 1vw;
     width: 100%;
 }
-tr{
+tr,td{
     padding: 2vw;
     height: 1vw;
 }
@@ -187,4 +191,33 @@ th{
 
     
 
+}
+.cardDescription{
+   padding-left: 1vw;
+}
+
+@media screen and (max-width: 800px){
+    .card-body{
+        display:block;
+      
+}
+.card-product img{
+    margin-bottom: 1vw;
+width: 100%;
+}
+form{
+    text-align: center;
+}
+}
+.logo{
+    display: flex;
+
+}
+#selectqt{
+    width: 8vw;
+}
+#TotalPrice{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+    color: brown;
 }
