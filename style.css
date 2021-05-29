@@ -177,20 +177,14 @@ form{
 .CarteAchat{
      
     background-color:#f2f2f2;
-
     margin-top: 1vw;
     width: 100%;
 }
-tr,td{
-    padding: 2vw;
-    height: 1vw;
-}
-th{
-    width: min-content;
+
+
+th,tr,td{
+  
     padding: 1vw;
-
-    
-
 }
 .cardDescription{
    padding-left: 1vw;
@@ -213,11 +207,29 @@ form{
     display: flex;
 
 }
-#selectqt{
-    width: 8vw;
+.selectqt{
+    width:auto;
 }
-#TotalPrice{
-    font-family: Georgia, 'Times New Roman', Times, serif;
+
+#idprod{
+    visibility: hidden;
+    height: 0;
+    padding: 0;
+    margin: 0;
+
+}
+#panierstatut{
+    font-size: xx-large;
+    font-style: italic;
+    text-align: center;
+}
+.btnDelete:hover{
+    border: 1px white solid;
+    transform: scale(1.1) ;
+    transition: 0.2s;
+}
+#TotalCommande{
+    font-family: cursive;
     font-weight: bolder;
-    color: brown;
+    font-size: xx-large;
 }

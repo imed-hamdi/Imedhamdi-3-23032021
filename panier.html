@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="stylesheet" href="style.css">
-    
-   
+
+
     <title>Orinoco</title>
 </head>
 
@@ -47,28 +47,28 @@
 
     <div class="container">
 
-        <table class="CarteAchat">
+        <table class=" Commandeligne CarteAchat">
             <tr>
 
                 <th>Produit</th>
-                
                 <th>Prix</th>
                 <th>Couleur</th>
                 <th>Quantité</th>
+                <th>Total</th>
                 
 
             </tr>
-            <tr class="Commandeligne">
-
-
-
-
-            </tr>
-            <tr>
-            <th id="tabTotal">Total</th>
-           </tr>
+           
+           
         </table>
-       
+        <table>
+            <tr id="TotalCommande">
+                <td>Prix Total de votre commande :</td>
+                <td class="TotalCommande"></td>
+            </tr>
+        </table>
+        <p id="panierstatut">Votre panier est vide</p>
+        <button type="button" id="btnviderpanier" onclick="viderPanier()" class="btn btn-dark">Vider le panier</button>
     </div>
 
 
@@ -104,7 +104,7 @@
 
                     <div class="form-group col-md-2">
                         <label for="inputZip">Code Postal</label>
-                        <input type="text" class="form-control" placeholder="Exemple 75100" id="inputZip">
+                        <input type="text" class="form-control" placeholder="Exemple 75100" width="5" id="inputZip">
                     </div>
                 </div>
 
@@ -143,7 +143,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/786255405a.js" crossorigin="anonymous"></script>
- 
+
 </body>
 
 </html>
