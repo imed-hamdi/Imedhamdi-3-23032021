@@ -78,26 +78,32 @@ function btnBuy() {
     }
 
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
-
-    if (ProductStorage) {
-        
-        ProductStorage.push(ProductOption);
-        localStorage.setItem('product', JSON.stringify(ProductStorage));
-
-    } else {
-        
+    
+    if (!ProductStorage ) {
         ProductStorage = [];
+    }
         ProductStorage.push(ProductOption);
         localStorage.setItem('product', JSON.stringify(ProductStorage));
-
-
+        TotalPriceCommande();
     }
 
 
 
 
 
+
+
+
+
+function TotalPriceCommande() {
+
+    let tab = [];
+    let ProductStorage = JSON.parse(localStorage.getItem('product'));
+    let Total = 0;
+    for (let l = 0; l < ProductStorage.length; l++) {
+        Total = Total + parseInt(ProductStorage[l].price * ProductStorage[l].quantity);
+    }
+    tab.push(Total);
+    localStorage.setItem('Total', JSON.stringify(tab));
+
 }
-
-
-
