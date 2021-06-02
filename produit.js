@@ -39,8 +39,8 @@ function displayproduit(product) {
 <div class='logo'>
 <p class="card-text prix " id="prix">${product.price / 100}</p><span>€</span>
 </div>
-
-<button type="button" id="btnCommande" onclick="btnBuy()" class="btn btn-dark">Acheter</button>
+<a href="panier.html">
+<button type="button" id="btnCommande" onclick="btnBuy()" class="btn btn-dark">Acheter</button></a>
 </div>  
 <hr>
 <p class="card-text">${product.description}</p>

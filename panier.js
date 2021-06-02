@@ -61,7 +61,7 @@ function deleteItem() {
         btnDel[k].addEventListener('click', () => {
             ProductStorage = ProductStorage.filter(el => ((el.id !== objet) || (el.color !== objetcol)));
             localStorage.setItem('product', JSON.stringify(ProductStorage));
-
+            TotalPrice();
             window.location.href = "panier.html";
 
         })
