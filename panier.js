@@ -1,6 +1,7 @@
+
+
+
 panier();
-
-
 function panier() {
     displaybtnstatus()
     let TotalCommande = document.getElementById("TotalCommande");
@@ -27,18 +28,15 @@ function panier() {
 </tr>
 `}
 
-if(Totalpanier){
-    TotalCommande.innerText += `${Totalpanier}` + ' ' + 'euros';
+    if (Totalpanier) {
+        TotalCommande.innerText += `${Totalpanier}` + ' ' + 'euros';
+    }
 }
-}
-
-
 
 
 function displaybtnstatus() {
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
     if (ProductStorage.length) {
-      
         document.getElementById("btnviderpanier").hidden = false;
         document.getElementById("panierstatut").hidden = true;
         document.getElementById("TotalCommande").hidden = false;
@@ -49,9 +47,6 @@ function displaybtnstatus() {
     }
 }
 
-
-
-
 function deleteItem() {
     let btnDel = document.querySelectorAll('.btnDelete');
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
@@ -61,29 +56,18 @@ function deleteItem() {
         btnDel[k].addEventListener('click', () => {
             ProductStorage = ProductStorage.filter(el => ((el.id !== objet) || (el.color !== objetcol)));
             localStorage.setItem('product', JSON.stringify(ProductStorage));
-            TotalPrice();
             window.location.href = "panier.html";
-
+            TotalPrice();
         })
     }
 }
 
 
-
 function viderPanier() {
     localStorage.clear();
-  localStorage.setItem('product',JSON.stringify([]));
+    localStorage.setItem('product', JSON.stringify([]));
     window.location.href = 'panier.html';
 }
-
-
-
-
-
-
-
-
-
 
 function TotalPrice() {
     let tabqt = [];
@@ -101,4 +85,68 @@ function TotalPrice() {
     tab.push(Total);
     localStorage.setItem('Total', JSON.stringify(tab));
     window.location.href = 'panier.html';
+}
+
+function addEventListeners() {
+
+
+    let tabproducts = [];
+    let ProductStorage = JSON.parse(localStorage.getItem('product'));
+    const firstname = document.getElementById('firstName').value
+    const lastname = document.getElementById('lastName').value
+    const adressuser = document.getElementById('adresse').value
+    const email = document.getElementById('email').value
+    const cityuser = document.getElementById('ville').value
+    const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+
+
+    if (!(
+        firstname.length > 1
+        && lastname.length > 1
+        && emailRegex.test(email)
+        && adressuser.length > 6
+        && cityuser.length > 1
+        && ProductStorage.length >0
+    )) {
+        alert("Veuillez remplir les champs correctements avant de procéder au paiement ou choisir un produit ")
+      
+        return
+    }
+    else {
+        const products = Object.values(ProductStorage).map((product) => {
+            return product.id
+        });
+
+        const order = {
+            contact: {
+                firstName: firstname,
+                lastName: lastname,
+                address: adressuser,
+                city: cityuser,
+                email: email,
+            },
+            products: tabproducts,
+        }
+
+
+        const requestOptions = {
+            method: 'POST',
+            body: JSON.stringify(order),
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+        }
+        fetch('http://localhost:3000/api/teddies/order', requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+
+                window.location.href = `${window.location.origin}/confirmation.html?orderId=${data.orderId}`
+
+            })
+            .catch(() => {
+                alert(error)
+            })
+
+
+    }
+
+   
 }

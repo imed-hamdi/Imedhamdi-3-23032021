@@ -9,8 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="stylesheet" href="style.css">
-    <script src="produit.js"></script>
-    <title>Orinoco -Produit</title>
+    <title>Orinoco</title>
 </head>
 
 <body>
@@ -18,7 +17,7 @@
 
     <div class="bg-dark">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row ">
                 <nav class="col navbar navbar-expand-lg bg-dark navbar-dark ">
                     <a class="navbar-brand" href="index.html">
                         <img src="logo.png" id="logo" alt="logo du site" />
@@ -26,7 +25,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div id="navbarContent" class="collapse navbar-collapse">
+                    <div id="navbarContent" class="collapse navbar-collapse ">
                         <ul class="navbar-nav ml-auto ">
                             <li class="nav-item">
                                 <a href="index.html" class="nav-link">Accueil</a>
@@ -43,11 +42,10 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="container container-product">
-            <div id="main-produit">
-            </div>
-        </div>
+    <div class="Resumé">
+        <h3>Félicitation, votre commande à bien été prise en compte !</h3>
+        <p> Identifiant de votre commande :</p><span id="commandId"></span><br>
+        <h5>prix total de votre commande est :</h5><span id="total"></span>
     </div>
 
     <footer>
@@ -80,6 +78,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/786255405a.js" crossorigin="anonymous"></script>
+    <script src="confirmation.js"></script>
 </body>
 
 </html>

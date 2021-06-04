@@ -9,9 +9,7 @@ async function func() {
     displayproduit(product)
 }
 
-
 function displayproduit(product) {
-
     const produit = document.getElementById("main-produit");
     let colorsNumb = product.colors;
     let newdiv = [];
@@ -32,7 +30,6 @@ function displayproduit(product) {
   ${newdiv}
  </select> 
  </form>
-
 <hr>
 <div id="name-price">
 <h4 class="card-title" id="nom">${product.name}</h4>
@@ -46,11 +43,7 @@ function displayproduit(product) {
 <p class="card-text">${product.description}</p>
 <p  id="idprod"> ${product._id}</p>
 </div>
-</div>
-
-    `
-
-
+</div>`
 }
 function getProductbyid(id) {
     return fetch(`http://localhost:3000/api/teddies/${id}`)
@@ -60,10 +53,7 @@ function getProductbyid(id) {
         })
 }
 
-
-
 function btnBuy() {
-
     var nameproduct = document.getElementById("nom").textContent;
     var priceproduct = document.getElementById("prix").textContent;
     var colorproduct = document.getElementById("options-colors").value;
@@ -76,27 +66,17 @@ function btnBuy() {
         price: priceproduct,
         color: colorproduct,
     }
-
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
-    
-    if (!ProductStorage ) {
+
+    if (!ProductStorage) {
         ProductStorage = [];
     }
-        ProductStorage.push(ProductOption);
-        localStorage.setItem('product', JSON.stringify(ProductStorage));
-        TotalPriceCommande();
-    }
-
-
-
-
-
-
-
-
+    ProductStorage.push(ProductOption);
+    localStorage.setItem('product', JSON.stringify(ProductStorage));
+    TotalPriceCommande();
+}
 
 function TotalPriceCommande() {
-
     let tab = [];
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
     let Total = 0;
@@ -105,5 +85,4 @@ function TotalPriceCommande() {
     }
     tab.push(Total);
     localStorage.setItem('Total', JSON.stringify(tab));
-
 }

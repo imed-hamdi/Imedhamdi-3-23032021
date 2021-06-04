@@ -9,13 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="icon" type="image/png" href="logo.png" />
     <link rel="stylesheet" href="style.css">
-
-
     <title>Orinoco</title>
 </head>
 
 <body>
-
 
     <div class="bg-dark">
         <div class="container-fluid">
@@ -55,11 +52,7 @@
                 <th>Couleur</th>
                 <th>Quantité</th>
                 <th>Total</th>
-                
-
             </tr>
-           
-           
         </table>
         <table>
             <tr id="TotalCommande">
@@ -75,41 +68,45 @@
     <div class="container">
         <div class="formulaire-globale">
 
-            <form>
+            <form action="#">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputName">Nom</label>
-                        <input type="text" class="form-control" placeholder="Nom">
+                        <label for="firstName">Nom</label>
+                        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Nom"
+                            required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputFirstName">Prenom</label>
-                        <input type="text" class="form-control" placeholder="Prénom">
+                        <label for="lastName">Prenom</label>
+                        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Prénom"
+                            required>
                     </div>
                     <div class="form-group col-md-6">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" class="form-control" placeholder="Email">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                     </div>
 
                 </div>
 
-                <div class="form-group">
-                    <label for="inputAddress2">Addresse</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Appartement, studio,..">
-                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputCity">Ville</label>
-                        <input type="text" class="form-control" id="inputCity">
+                        <label for="adresse">Adresse</label>
+                        <input type="text" name="adresse" class="form-control" id="adresse"
+                            placeholder="Appartement, studio,.." required>
                     </div>
 
-                    <div class="form-group col-md-2">
-                        <label for="inputZip">Code Postal</label>
-                        <input type="text" class="form-control" placeholder="Exemple 75100" width="5" id="inputZip">
+
+                    <div class="form-group col-md-6">
+                        <label for="ville">Ville</label>
+                        <input type="text" name="ville" class="form-control" placeholder="Paris ..." id="ville"
+                            required>
                     </div>
+
+
                 </div>
 
-                <button type="submit" class="btn col-md-3 btn-primary">Passer ma commande</button>
             </form>
+            <button onclick="addEventListeners()" id="passercommande" class="btn col-md-3 btn-primary">Passer ma
+                commande</button>
         </div>
     </div>
 

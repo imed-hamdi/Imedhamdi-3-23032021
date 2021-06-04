@@ -3,11 +3,8 @@ main()
 async function main(){
     const products = await getProduct()
     for (product of products) {
-        displayListProduct()
-        
+        displayListProduct()   
     }
-
-  
 }
 
  function displayListProduct() {
