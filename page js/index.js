@@ -1,14 +1,22 @@
 main()
-
+/* la fonction main() : function globale async  ,elle attend la reponse de la function getProduct() pour afficher 
+la liste des produits sous forme de carte dans la page d'accueil   */
 async function main(){
     const products = await getProduct()
     for (product of products) {
         displayListProduct()   
     }
 }
-
+/* Recuperation des informations des produits dans l'API  */
+function getProduct(){
+    return fetch('http://localhost:3000/api/teddies')
+    .then(response =>response.json())
+    .then(function (products) {
+        return products})
+    }
+       
+/* la creation d'une liste de carte qui contiennent les informations de chaque produits present dans l'API */
  function displayListProduct() {
-
     const peluche = document.getElementById("main");
     peluche.innerHTML += `
     <a href="produit.html?id=${product._id}">
@@ -28,13 +36,6 @@ async function main(){
      </a>
      `
  }
-
-     function getProduct(){
-return fetch('http://localhost:3000/api/teddies')
-.then(response =>response.json())
-.then(function (products) {
-    return products})
-}
 
 
  

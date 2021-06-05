@@ -1,6 +1,5 @@
 
-
-
+/* function global qui va recuperer les elements du Localstorage et  les affiché ainsi que le prix total de la commande  */
 panier();
 function panier() {
     displaybtnstatus()
@@ -33,7 +32,7 @@ function panier() {
     }
 }
 
-
+/* si le panier est vide le bouton "vider le panier ainsi que le prix total de la commande doit etre invisible" */
 function displaybtnstatus() {
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
     if (ProductStorage.length) {
@@ -46,7 +45,8 @@ function displaybtnstatus() {
         document.getElementById("TotalCommande").hidden = true;
     }
 }
-
+/* effacer un produit de la liste */
+/* pour chaque produit ily'a l'option couleur  */
 function deleteItem() {
     let btnDel = document.querySelectorAll('.btnDelete');
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
@@ -62,13 +62,13 @@ function deleteItem() {
     }
 }
 
-
+/* Vider le panier (effacer tout les produits de la liste ) */
 function viderPanier() {
     localStorage.clear();
     localStorage.setItem('product', JSON.stringify([]));
     window.location.href = 'panier.html';
 }
-
+/* afficher le prix total de la commande et le stocker dans le LocalStorage pour le sauvgarder  */
 function TotalPrice() {
     let tabqt = [];
     let tab = [];
@@ -86,8 +86,10 @@ function TotalPrice() {
     localStorage.setItem('Total', JSON.stringify(tab));
     window.location.href = 'panier.html';
 }
-
-function addEventListeners() {
+/* Verfication du formulaire et la presence des produits dans le panier  */
+/* Creation d'un objet Order qui contient un objet contact et un tableau de produit */
+/* recuperation  de la reponse du serveur orderId et le transmettre dans l'URL de la page confirmation */
+function confirmCommande() {
 
 
     let tabproducts = [];

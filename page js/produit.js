@@ -1,14 +1,23 @@
+/* function globale qui va recuperer l'id de l'URL et chercher le produit choisi par rapport à l'id  */
+/* affchage du produit sous forme de carte */
+main()
 
-func()
-
-async function func() {
+async function main() {
     const query = window.location.search;
     const url = new URLSearchParams(query);
     const id = url.get("id");
     const product = await getProductbyid(id);
     displayproduit(product)
 }
-
+/* recuperer  les informations sur le produit dans l'API via l'ID recuperer dans l'URL  */
+function getProductbyid(id) {
+    return fetch(`http://localhost:3000/api/teddies/${id}`)
+        .then(response => response.json())
+        .then(function (product) {
+            return product
+        })
+}
+/* affichage du produit et l'option couleur */
 function displayproduit(product) {
     const produit = document.getElementById("main-produit");
     let colorsNumb = product.colors;
@@ -16,11 +25,8 @@ function displayproduit(product) {
     for (i = 0; i < colorsNumb.length; i++) {
         newdiv += `<option  value="${colorsNumb[i]}">${colorsNumb[i]}</option>`
     }
-
-    produit.innerHTML = `
-   
+    produit.innerHTML = ` 
  <div class="  card-body card-product" >
- 
  <img class=”card-img-top" src=${product.imageUrl}>
 <div class="cardDescription">
  <form>
@@ -45,14 +51,7 @@ function displayproduit(product) {
 </div>
 </div>`
 }
-function getProductbyid(id) {
-    return fetch(`http://localhost:3000/api/teddies/${id}`)
-        .then(response => response.json())
-        .then(function (product) {
-            return product
-        })
-}
-
+/* creation d'un objet et le stocker dans un tableau qui sera par la suite ajouter au LocalStorage  */
 function btnBuy() {
     var nameproduct = document.getElementById("nom").textContent;
     var priceproduct = document.getElementById("prix").textContent;
@@ -75,7 +74,7 @@ function btnBuy() {
     localStorage.setItem('product', JSON.stringify(ProductStorage));
     TotalPriceCommande();
 }
-
+/* à l'ajout du produit son prix s'ajoute dans le localStorage  */
 function TotalPriceCommande() {
     let tab = [];
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
