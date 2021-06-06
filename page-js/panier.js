@@ -90,8 +90,6 @@ function TotalPrice() {
 /* Creation d'un objet Order qui contient un objet contact et un tableau de produit */
 /* recuperation  de la reponse du serveur orderId et le transmettre dans l'URL de la page confirmation */
 function confirmCommande() {
-
-
     let tabproducts = [];
     let ProductStorage = JSON.parse(localStorage.getItem('product'));
     const firstname = document.getElementById('firstName').value
@@ -100,25 +98,23 @@ function confirmCommande() {
     const email = document.getElementById('email').value
     const cityuser = document.getElementById('ville').value
     const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-
-
+    const stringregex = /^[a-zA-Z]+$/
     if (!(
         firstname.length > 1
+        && stringregex.test(firstname)
         && lastname.length > 1
+        && stringregex.test(lastname)
         && emailRegex.test(email)
         && adressuser.length > 6
         && cityuser.length > 1
         && ProductStorage.length >0
     )) {
         alert("Veuillez remplir les champs correctements avant de procéder au paiement ou choisir un produit ")
-      
         return
-    }
-    else {
+    }  else {
         const products = Object.values(ProductStorage).map((product) => {
             return product.id
         });
-
         const order = {
             contact: {
                 firstName: firstname,
@@ -129,9 +125,7 @@ function confirmCommande() {
             },
             products: tabproducts,
         }
-
-
-        const requestOptions = {
+       const requestOptions = {
             method: 'POST',
             body: JSON.stringify(order),
             headers: { 'Content-Type': 'application/json; charset=utf-8' },
@@ -141,14 +135,9 @@ function confirmCommande() {
             .then((data) => {
 
                 window.location.href = `${window.location.origin}/confirmation.html?orderId=${data.orderId}`
-
             })
             .catch(() => {
                 alert(error)
             })
-
-
     }
-
-   
 }

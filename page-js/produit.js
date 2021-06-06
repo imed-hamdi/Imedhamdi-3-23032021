@@ -1,3 +1,4 @@
+
 /* function globale qui va recuperer l'id de l'URL et chercher le produit choisi par rapport à l'id  */
 /* affchage du produit sous forme de carte */
 main()
@@ -51,6 +52,7 @@ function displayproduit(product) {
 </div>
 </div>`
 }
+
 /* creation d'un objet et le stocker dans un tableau qui sera par la suite ajouter au LocalStorage  */
 function btnBuy() {
     var nameproduct = document.getElementById("nom").textContent;
